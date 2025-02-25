@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxMitraa</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <script src="form.js"></script>
+</head>
+<body>
+    <!-- This is code done by Manan -->
+    <py-script>
+        print("hello")
+    </py-script>
+    <!-- This is code done by Manan -->
+    <div class="container">
+        <h2>Income Tax Filing Form</h2>
+        <form id="taxForm" action="/submit" method="post" onsubmit="return validateForm()">
+            
+            <!-- Basic Personal Information -->
+            <h3>Basic Personal Information</h3>
+            <div class="form-group">
+                <label>Full Name:</label>
+                <input type="text" name="full_name" required pattern="[A-Za-z ]{3,}" title="Enter a valid name">
+            </div>
+            <div class="form-group">
+                <label>PAN:</label>
+                <input type="text" name="pan" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" title="Enter a valid 10-character PAN (e.g., ABCDE1234F)">
+            </div>
+            <div class="form-group">
+                <label>Aadhaar Number:</label>
+                <input type="text" name="aadhaar" required pattern="\d{12}" title="Enter a valid 12-digit Aadhaar number">
+            </div>
+            <div class="form-group">
+                <label>Date of Birth:</label>
+                <input type="date" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Mobile Number:</label>
+                <input type="tel" name="mobile" required pattern="[6-9]\d{9}" title="Enter a valid 10-digit mobile number">
+            </div>
+
+            <!-- Income Details -->
+            <h3>Income Details</h3>
+            <div class="form-group">
+                <label>Salary Income:</label>
+                <input type="number" name="salary_income" min="0">
+            </div>
+            <div class="form-group">
+                <label>Business/Professional Income:</label>
+                <input type="number" name="business_income" min="0">
+            </div>
+            <div class="form-group">
+                <label>Capital Gains:</label>
+                <input type="number" name="capital_gains" min="0">
+            </div>
+            <div class="form-group">
+                <label>Rental Income:</label>
+                <input type="number" name="rental_income" min="0">
+            </div>
+            <div class="form-group">
+                <label>Other Sources (Interest, Dividends, etc.):</label>
+                <input type="number" name="other_income" min="0">
+            </div>
+
+            <!-- Deductions & Exemptions -->
+            <h3>Deductions & Exemptions</h3>
+            <div class="form-group">
+                <label>Section 80C:</label>
+                <input type="number" name="section_80c" min="0">
+            </div>
+            <div class="form-group">
+                <label>Section 80D:</label>
+                <input type="number" name="section_80d" min="0">
+            </div>
+            <div class="form-group">
+                <label>HRA:</label>
+                <input type="number" name="hra" min="0">
+            </div>
+            <div class="form-group">
+                <label>Home Loan Interest:</label>
+                <input type="number" name="home_loan" min="0">
+            </div>
+            <div class="form-group">
+                <label>Other Investments (NPS, Donations, etc.):</label>
+                <input type="number" name="other_investments" min="0">
+            </div>
+
+            <!-- Tax Payment & Filing Details -->
+            <h3>Tax Payment & Filing Details</h3>
+            <div class="form-group">
+                <label>Advance Tax/TDS Paid:</label>
+                <input type="number" name="advance_tax" min="0">
+            </div>
+            <div class="form-group">
+                <label>Bank Account for Refund:</label>
+                <input type="text" name="bank_account" required pattern="\d{9,18}" title="Enter a valid bank account number">
+            </div>
+            <div class="form-group">
+                <label>Preferred Tax Regime:</label>
+                <select name="tax_regime">
+                    <option value="old">Old</option>
+                    <option value="new">New</option>
+                </select>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="static/js/validation.js"></script>
+</body>
+</html>
